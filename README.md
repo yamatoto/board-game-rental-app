@@ -35,6 +35,29 @@ modules/
     └── infra/ # RepositoryやQueryServiceの実装（TypeORMベース）
 ```
 
+### 高レベル依存関係図（Contextual Layer）
+
+```mermaid
+graph TD
+  Interface["🟦 Interface (Fastify)"]
+  Application["🟨 Application (Usecase + Port)"]
+  Domain["🟩 Domain (Entity / Logic)"]
+  Infra["🟥 Infra (Repository / QueryService)"]
+  InfraDB["🟪 Infra-DB (TypeORM / PostgreSQL)"]
+
+  Interface --> Application
+  Application --> Domain
+  Application -->|calls| Infra
+  Infra --> InfraDB
+
+```
+
+#### 💡 補足：
+
+矢印の方向は「依存方向」
+
+依存の逆転が守られていることを可視化
+
 ---
 
 ## 💡 Domain: ボードゲーム貸出管理
@@ -90,9 +113,3 @@ yarn test
 - E2E テスト（Playwright or supertest）
 - GitHub Actions での CI 構築
 - ER 図 & OpenAPI ドキュメントの自動生成
-
-## 📘 ライセンス
-
-MIT
-
----
