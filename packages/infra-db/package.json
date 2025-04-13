@@ -1,0 +1,10 @@
+{
+  "name": "@board-game/infra-db",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

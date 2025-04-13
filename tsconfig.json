@@ -11,8 +11,8 @@
     // モノレポ向け設定
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["packages/api/src/*"],
-      "@infra-db/*": ["packages/infra-db/src/*"]
+      "@board-game/api/*": ["packages/api/src/*"],
+      "@board-game/infra-db/*": ["packages/infra-db/src/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
